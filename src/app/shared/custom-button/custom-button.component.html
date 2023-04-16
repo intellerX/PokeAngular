@@ -1,0 +1,17 @@
+<button [type]="type" class="customButton" [class.disabled]="!enabled">
+  <i-feather *ngIf="idRole === buttonRole.New" name="plus" class="buttonIcon" />
+  <i-feather
+    *ngIf="idRole === buttonRole.Save"
+    name="save"
+    class="buttonIcon" />
+  <i-feather *ngIf="idRole === buttonRole.Cancel" name="x" class="buttonIcon" />
+  <i-feather
+    *ngIf="idRole === buttonRole.Edit"
+    name="edit"
+    class="buttonIcon" />
+  <i-feather
+    *ngIf="idRole === buttonRole.Delete"
+    name="trash"
+    class="buttonIcon" />
+  <span *ngIf="label !== ''">{{ label }}</span>
+</button>

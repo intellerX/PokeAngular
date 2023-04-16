@@ -1,0 +1,82 @@
+<div class="formGroup">
+  <h2 class="title">
+    {{
+      (formStatusValue === formStatus.New ? 'Nuevo' : 'Editar') +
+        ' Pokemon' +
+        (formStatusValue === formStatus.Edit ? ' (' + pokemonName + ')' : '')
+    }}
+  </h2>
+  <form class="formContainer" [formGroup]="pokemonForm" (ngSubmit)="onSubmit()">
+    <input type="hidden" formControlName="id" />
+    <section class="controls">
+      <div class="column column1">
+        <app-custom-input-text
+          [idRole]="inputRole.Form"
+          label="Nombre *"
+          formControlName="name"
+          placeHolder="Ingrese nombre..." />
+        <div
+          class="errorText mb-1"
+          *ngIf="
+            pokemonForm.get('name')?.invalid && pokemonForm.get('name')?.touched
+          ">
+          <div *ngIf="pokemonForm.get('name')?.errors?.['required']">
+            El nombre es obligatorio.
+          </div>
+        </div>
+        <app-custom-input-text
+          [idRole]="inputRole.Form"
+          label="Imágen"
+          formControlName="image"
+          placeHolder="Ingrese URL de la imagen..." />
+        <app-custom-input-text
+          [idRole]="inputRole.Form"
+          label="Tipo *"
+          formControlName="type"
+          placeHolder="Ingrese tipo (ej. eléctrico)..." />
+        <div
+          class="errorText mb-1"
+          *ngIf="
+            pokemonForm.get('type')?.invalid && pokemonForm.get('type')?.touched
+          ">
+          <div *ngIf="pokemonForm.get('type')?.errors?.['required']">
+            El tipo es obligatorio.
+          </div>
+        </div>
+      </div>
+      <div class="column column2">
+        <app-custom-input-range
+          label="Ataque: "
+          formControlName="attack"
+          [minValue]="0"
+          [maxValue]="100" />
+        <app-custom-input-range
+          label="Defensa: "
+          formControlName="defense"
+          [minValue]="0"
+          [maxValue]="100" />
+        <app-custom-input-range
+          label="Salud: "
+          formControlName="hp"
+          [minValue]="0"
+          [maxValue]="100" />
+      </div>
+    </section>
+    <section *ngIf="errorMessage !== ''" class="errorMessages">
+      <h3>{{ 'Error: ' + this.errorMessage }}</h3>
+    </section>
+    <section class="actions">
+      <app-custom-button
+        [idRole]="buttonRole.Save"
+        type="submit"
+        label="Guardar"
+        [enabled]="pokemonForm.valid && !loading"
+        class="mr-1" />
+      <app-custom-button
+        [idRole]="buttonRole.Cancel"
+        type="button"
+        label="Cancelar"
+        (click)="onCancel()" />
+    </section>
+  </form>
+</div>

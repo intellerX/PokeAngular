@@ -1,0 +1,61 @@
+@use 'src/app/styles/variables' as vars;
+
+.formGroup {
+  background-color: white;
+  padding: 15px;
+  border: 1px solid vars.$secondary-color;
+
+  .title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .controls {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+
+      margin: 20px 0 40px 0;
+
+      .column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+
+        height: 280px;
+      }
+
+      .column1 {
+        margin-right: 20px;
+      }
+    }
+
+    .errorMessages {
+      border: 1px solid vars.$error_color;
+      color: red;
+      background-color: rgba(vars.$error_color, 0.2);
+
+      margin-bottom: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+
+}

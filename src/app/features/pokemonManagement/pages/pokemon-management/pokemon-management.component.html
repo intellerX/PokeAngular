@@ -1,0 +1,17 @@
+<main class="mainContainer">
+  <div class="card">
+    <section class="toolbar">
+      <app-filter-group #filter [gridCompomentRef]="grid"></app-filter-group>
+      <app-actions-header [formCompomentRef]="form"></app-actions-header>
+    </section>
+    <section class="grid">
+      <app-items-grid
+        #grid
+        (idEmitter)="onEdit($event)"
+        [filterCompomentRef]="filter"></app-items-grid>
+    </section>
+    <section class="form">
+      <app-form #form [gridCompomentRef]="grid"></app-form>
+    </section>
+  </div>
+</main>

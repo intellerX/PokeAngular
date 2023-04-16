@@ -1,0 +1,46 @@
+@use 'src/app/styles/variables' as vars;
+
+.customButton {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+
+  background-color: vars.$primary-color;
+  border-radius: 5px;
+  border: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 40px;
+  padding: 0 15px;
+
+  cursor: pointer;
+
+  .buttonIcon {
+    margin-right: 5px;
+  }
+}
+
+.disabled {
+  background-color: rgba(vars.$primary-color, 0.59);
+  cursor: not-allowed;
+}
+
+:host.button-noBackground {
+  button {
+    background-color: transparent;
+  }
+
+  .buttonIcon {
+    color: vars.$primary-color;
+    margin: 0;
+  }
+}
+
+:host.mr-1 {
+  button {
+    margin-right: 5px;
+  }
+}

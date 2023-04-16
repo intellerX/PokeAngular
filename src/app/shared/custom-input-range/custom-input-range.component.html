@@ -1,0 +1,14 @@
+<div class="formControl">
+  <div>
+    <label [for]="name">{{ label }} ({{ value }})</label>
+  </div>
+  <span>{{ minValue }}</span>
+  <input
+    type="range"
+    [id]="name"
+    [min]="minValue"
+    [max]="maxValue"
+    [value]="value"
+    (input)="onInput($event)" />
+  <span>{{ maxValue }}</span>
+</div>

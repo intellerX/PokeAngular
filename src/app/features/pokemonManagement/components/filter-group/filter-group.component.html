@@ -1,0 +1,10 @@
+<div class="filterGroup">
+  <form [formGroup]="searchForm">
+    <app-custom-input-text
+      [idRole]="inputRole.Search"
+      label="Listado de Pokemon"
+      formControlName="search"
+      (keyup)="onKeyUp($event)"
+      placeHolder='(Presionar tecla "Enter" para buscar)' />
+  </form>
+</div>
