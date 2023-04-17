@@ -8,7 +8,7 @@ import { environment } from '../../../../environments/environments';
   providedIn: 'root',
 })
 export class PokemonService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   fetchPokemons(payload: PokemonFetch): Observable<Pokemon[]> {
     return this.http

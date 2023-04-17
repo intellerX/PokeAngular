@@ -19,4 +19,4 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [CommonModule, SharedModule, ReactiveFormsModule],
   exports: [PokemonManagementComponent],
 })
-export class PokemonManagementModule {}
+export class PokemonManagementModule { }

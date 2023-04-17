@@ -3,6 +3,7 @@ import { Pokemon } from '../../models/pokemon';
 import { ButtonRole } from '../../../../core/enums/buttonRole.enum';
 import { PokemonService } from '../../services/pokemon.service';
 import { environment } from '../../../../../environments/environments';
+import { ServiceBusService } from '../../services/service-bus.service';
 
 @Component({
   selector: 'app-items-grid',
@@ -16,13 +17,13 @@ export class ItemsGridComponent implements OnInit {
 
   buttonRole = ButtonRole;
 
-  pokemonMain: Pokemon[] = [];
+  @Output() pokemonMain: Pokemon[] = [];
   pokemonFilter: Pokemon[] = [];
 
   loading = false;
   errorMessage = '';
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private pokemonService: PokemonService, private serviceBus: ServiceBusService) { }
 
   ngOnInit(): void {
     this.fetchPokemons();
@@ -59,6 +60,9 @@ export class ItemsGridComponent implements OnInit {
       .subscribe({
         next: data => {
           this.pokemonMain = data;
+          this.serviceBus.pokemonMain = data;
+          console.log(data);
+
           this.pokemonFilter = [...this.pokemonMain];
 
           this.clearFilter();
@@ -108,4 +112,5 @@ export class ItemsGridComponent implements OnInit {
   clearFilter(): void {
     if (this.filterCompomentRef) this.filterCompomentRef.clearFilter();
   }
+
 }

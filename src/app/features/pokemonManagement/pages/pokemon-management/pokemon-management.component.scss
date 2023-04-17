@@ -1,4 +1,10 @@
+@use 'src/app/styles/variables' as vars;
+
+
 .mainContainer {
+  background-color: vars.$background-color;
+  color: vars.$font-primary-color;
+
   display: flex;
   justify-content: center;
   align-items: center;

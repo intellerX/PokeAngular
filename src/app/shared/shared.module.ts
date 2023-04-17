@@ -9,6 +9,7 @@ import { CustomInputTextComponent } from './custom-input-text/custom-input-text.
 import { CustomInputRangeComponent } from './custom-input-range/custom-input-range.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CustomInputFilterComponent } from './custom-input-filter/custom-input-filter.component';
 
 const icons = {
   Search,
@@ -24,12 +25,14 @@ const icons = {
     CustomButtonComponent,
     CustomInputTextComponent,
     CustomInputRangeComponent,
+    CustomInputFilterComponent,
   ],
   exports: [
     CustomButtonComponent,
     FeatherModule,
     CustomInputTextComponent,
     CustomInputRangeComponent,
+    CustomInputFilterComponent,
   ],
   imports: [
     CommonModule,
@@ -38,4 +41,4 @@ const icons = {
     ReactiveFormsModule,
   ],
 })
-export class SharedModule {}
+export class SharedModule { }
