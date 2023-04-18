@@ -1,8 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Pokemon } from '../../features/pokemonManagement/models/pokemon';
-import { ServiceBusService } from 'src/app/features/pokemonManagement/services/service-bus.service';
-import { PokemonService } from 'src/app/features/pokemonManagement/services/pokemon.service';
-
 @Component({
   selector: 'app-custom-input-filter',
   templateUrl: './custom-input-filter.component.html',
@@ -10,7 +6,11 @@ import { PokemonService } from 'src/app/features/pokemonManagement/services/poke
 })
 export class CustomInputFilterComponent {
 
-  @Input() pokemonMain: Pokemon[] = [];
+  public pokemonMain: any = [
+    { value: 'option1', label: 'Option 1' },
+    { value: 'option2', label: 'Option 2' },
+    { value: 'option3', label: 'Option 3' }
+  ];
 
   @Input() name = '';
   @Input() label = '';
@@ -19,14 +19,7 @@ export class CustomInputFilterComponent {
   value = '';
   selectedOption = "";
 
-  constructor(private serviceBus: ServiceBusService) { }
 
-  ngOnInit() {
-    this.pokemonMain = this.serviceBus.pokemonMain;
-
-    console.log(this.pokemonMain);
-
-  }
 
 
 

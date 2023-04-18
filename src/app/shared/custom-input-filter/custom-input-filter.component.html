@@ -1,9 +1,9 @@
 <div class="formControl">
     <label [for]="name">{{ label }}</label>
     <div class="inputGroup">
-        <input list="browsers" name="browser" [id]="name" [placeholder]="placeHolder">
+        <input list="browsers" name="browser" [id]="name" [placeholder]="placeHolder" autocomplete="off">
         <datalist id="browsers">
-            <option *ngFor="let pokemon of pokemonMain" [value]="pokemon.name">{{ pokemon.name }}</option>
+            <option *ngFor="let pokemon of pokemonMain" [value]="pokemon.value">{{ pokemon.label }}</option>
         </datalist>
     </div>
 </div>

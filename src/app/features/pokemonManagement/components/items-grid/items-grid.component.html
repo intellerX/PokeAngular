@@ -15,11 +15,7 @@
       <tr *ngFor="let item of pokemonFilter">
         <td class="leftColumn">{{ item.name }}</td>
         <td class="centerColumn">
-          <img
-            [src]="item.image"
-            [alt]="'Imagen del pokemon ' + item.name"
-            width="50"
-            height="50" />
+          <img [src]="item.image" [alt]="'Imagen del pokemon ' + item.name" width="50" height="50" />
         </td>
         <td class="leftColumn">{{ item.type }}</td>
         <td class="rightColumn">{{ item.attack }}</td>
@@ -27,17 +23,9 @@
         <td class="rightColumn">{{ item.hp }}</td>
         <td class="centerColumn">
           <div class="actionColumn">
-            <app-custom-button
-              [idRole]="buttonRole.Edit"
-              type="button"
-              label=""
-              (click)="onEdit(item.id)"
+            <app-custom-button [idRole]="buttonRole.Edit" type="button" label="" (click)="onEdit(item.id)"
               class="button-noBackground" />
-            <app-custom-button
-              [idRole]="buttonRole.Delete"
-              type="button"
-              label=""
-              (click)="onDelete(item.id)"
+            <app-custom-button [idRole]="buttonRole.Delete" type="button" label="" (click)="onDelete(item.id)"
               class="button-noBackground" />
           </div>
         </td>
@@ -45,9 +33,9 @@
       <tr *ngIf="!pokemonFilter.length" class="emptyData">
         <td colspan="7" [class.errorText]="errorMessage !== ''">
           {{
-            errorMessage === ''
-              ? 'No existen registros'
-              : 'Error: ' + errorMessage
+          errorMessage === ''
+          ? 'No existen registros'
+          : 'Error: ' + errorMessage
           }}
         </td>
       </tr>
